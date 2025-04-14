@@ -36,3 +36,7 @@ npm run "preview vite"
 ```bash
 npm run "preview serve"
 ```
+📸 Предпросмотр игры
+Интерфейс
+<div align="center"> ![Снимок экрана (1985)](https://github.com/user-attachments/assets/bb9b5e09-11b1-4c03-8e94-8ef05feb8558)
+ </div>
