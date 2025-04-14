@@ -1,0 +1,14 @@
+@media(max-width: 768px){
+  :root{
+    --game-zone-elems-in-row: 6;
+    /* --game-zone-elems-min-width:70px; */
+  }
+}
+
+@media(max-width: 576px){
+  :root{
+    --game-zone-elems-in-row: 4;
+    /* --game-zone-elems-min-width:50px; */
+    --container-safety-padding-x: 20px;
+  }
+}

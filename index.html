@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пары</title>
+    <link rel="stylesheet" href="src/styles/normalize.css">
+    <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="src/styles/media.css">
+    <script defer type="module" src="src/main.ts"></script>
+</head>
+<body>
+    <header class="header section-offset">
+        <div class="container">
+          <div class="header__flex-container">
+            <h1 class="header__title">Пары</h1>
+            <ul class="header__list grid-ish" id='header__interraction-list'>
+                <li class="header__item">
+                    <button class="header__btn btn" data-action="show-rejime-modal">Выберите режим</button>
+                    <div class="header__modal modal modal--set-rejime">
+                      <form class="modal__form" name="rejime-form">
+                        <div class="modal__form-elements-wrapper">
+                          <label for="card-amount-input">колличество пар карт:</label>
+                          <input type="number" id="card-amount-input" name="card-amount" min="2" max="10" required/>
+                        </div>
+                        <div class="modal__form-elements-wrapper">
+                          <label for="card-theme-input">Тема карточек:</label>
+                          <select name="card-theme" id="card-theme-input">
+                            <option value="shrek" selected>Шрек</option>
+                            <option value="cyanide">Цианид и счастье</option>
+                            <option value="minions">Миньоны</option>
+                          </select>
+                        </div>
+                        <div class="modal__form-elements-wrapper">
+                          <button class="modal__submit btn" type="submit" data-action="send-form">Выбрать</button>
+                          <button class="modal__cancel btn" type="button" data-action="cancel-form">Отменить</button>
+                        </div>
+                      </form>
+                    </div>
+                </li>
+                <li class="header__item">
+                    <button class="header__btn btn" data-action="show-timer-modal">Установите таймер</button>
+                    <div class="header__modal modal modal--set-timer">
+                      <form class="modal__form" name="timer-form">
+                        <div class="modal__form-elements-wrapper">
+                          <label for="seconds-amount-input">колличество секунд:</label>
+                          <input type="number" id="seconds-amount-input" name="seconds-amount" min="0" max="59" step="1" required/>
+                        </div>
+                        <div class="modal__form-elements-wrapper">
+                          <label for="minutes-amount-input">колличество минут:</label>
+                          <input type="number" id="minutes-amount-input" name="minutes-amount" min="0" max="60" step="1" required/>
+                        </div>
+                        <div class="modal__form-elements-wrapper">
+                          <button class="modal__submit btn" type="submit" data-action="send-form">Пуск</button>
+                          <button class="modal__cancel btn" type="button" data-action="cancel-form">Отменить</button>
+                        </div>
+                      </form>
+                    </div>
+                </li>
+                <li class="header__item header__item--wide">
+                    <div class="header__show-info show-info" data-action="show-info">
+                      <div class="show-info__time" data-action="show-time">00:00</div>
+                      <button class="show-info__btn btn" data-action="control-timer" data-state="continue"></button>
+                    </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="game-zone section-offset section-offset--bottom-padding">
+            <div class="container">
+                <ul id="game-zone" class="game-zone__card-list grid-ish" data-chosen="none" data-timer-dasabled="false" data-click-disabled="false">
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

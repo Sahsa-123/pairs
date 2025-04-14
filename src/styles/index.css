@@ -1,0 +1,371 @@
+/*fonts*/
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-Regular");
+  src: url('/fonts/Montserrat-Regular.woff2') format('woff2'),
+      url('/fonts/Montserrat-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("Montserrat-Bold");
+  src: url('/fonts/Montserrat-Bold.woff2') format('woff2'),
+      url('/fonts/Montserrat-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/*fonts*/
+
+/*basic-reset*/
+html {
+	box-sizing: border-box;
+  letter-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+	max-width: 100%;
+}
+
+body {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  background-color: var(--web-site-bg-color);
+  color: var(--text-color-stadard);
+}
+
+ul,p,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  list-style: none;
+}
+
+li::marker {
+  content: none;
+}
+/*basic-reset*/
+
+/*global*/
+:root {
+  /* general */
+  --web-site-bg-color: rgb(250, 248, 239);
+
+  --container-width: 900px;
+  --container-safety-padding-x: 50px;
+
+  --section-offset-y: 40px;
+
+  --text-color-stadard:rgb(119, 110, 101);
+
+  --bg-color-pale: rgb(187, 173, 160);
+  --bg-color-standard: rgb(143, 122, 102);
+  --bg-color-intense:rgb(119, 110, 101);
+
+  --border-radius-standard: 3px;
+  /* general */
+
+  /* btn */
+  --btn-padding-x: 1em;
+  --btn-pading-y: 0.5em;
+  /* btn */
+
+  /* show-info */
+  --show-info-padding-x: 1em;
+  --show-info-pading-y: 0.5em;
+  /* show-info */
+
+  /*header*/
+  --header-flex-container-gap-multiplyer: 3;
+  --header-elems-in-row-amount: 2;
+  /*header*/
+
+  /* grid-ish */
+  --grid-ish-header-gap: 10px;
+  --grid-ish-game-zone-gap: 10px;
+  /* grid-ish */
+
+  /* modal */
+  --modal-safety-gap: 10px;
+  /* modal */
+
+  /* game-zone */
+  --game-zone-elems-in-row: 7;
+  --game-zone-elems-min-width:100px;
+  /* game-zone */
+
+  /* js-dynamic */
+  --card-bgim-1: url('/shrek/bgim-1.jpg');
+  --card-bgim-2: url('/img/shrek/bgim-2.jpg');
+  --card-bgim-3: url('/img/shrek/bgim-3.jpg');
+  --card-bgim-4: url('/img/shrek/bgim-4.jpg');
+  --card-bgim-5: url('/img/shrek/bgim-5.jpg');
+  --card-bgim-6: url('/img/shrek/bgim-6.jpg');
+  --card-bgim-7: url('/img/shrek/bgim-7.jpg');
+  --card-bgim-8: url('/img/shrek/bgim-8.jpg');
+  --card-bgim-9: url('/img/shrek/bgim-9.jpg');
+  --card-bgim-10: url('/img/shrek/bgim-10.jpg');
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+
+  margin: auto;
+  padding: 0 var(--container-safety-padding-x);
+}
+
+.section-offset {
+  padding-top: var(--section-offset-y);
+}
+
+.section-offset--bottom-padding {
+  padding-bottom: var(--section-offset-y);
+}
+
+.grid-ish {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.btn {
+  cursor: pointer;
+  padding: var(--btn-pading-y) var(--btn-padding-x);
+  border: none;
+  border-radius: var(--border-radius-standard);
+
+  background-color: var(--bg-color-standard);
+
+  font-size: 1rem;
+  color: white;
+  font-weight: 700;
+
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+
+  transition: background-color 0.25s ease, outline-color 0.25s ease;
+}
+
+/*анимация btn*/
+.btn:focus-visible {
+  outline: 2px solid var(--bg-color-standard);
+}
+.btn:hover {
+  background-color: var(--bg-color-intense);
+  outline-color: transparent;
+}
+
+.btn:active {
+  background-color: var(--bg-color-pale);
+  outline-color: transparent;
+}
+/*анимация btn*/
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  display: none;/*сокрыто, пока его не вызовет js*/
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__form {
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: var(--modal-safety-gap);
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: white;
+
+  min-height: 150px;
+
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.modal__form-elements-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--modal-safety-gap);
+}
+
+.show-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 60px;
+
+  background-color: var(--bg-color-standard);
+  border-radius: var(--border-radius-standard);
+  padding: var(--show-info-pading-y) var(--show-info-padding-x);
+  color: white;
+}
+
+.show-info__btn{
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.show-info__time {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.show-info__btn[data-state="pause"] {
+  background-image: url('/public/page/pause-btn.svg');
+}
+
+.show-info__btn[data-state="continue"] {
+  background-image: url('/public/page/continue-btn.svg');
+}
+/*global*/
+
+/*header*/
+.header__title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.header__flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: calc(var(--grid-ish-header-gap) * var(--header-flex-container-gap-multiplyer));
+}
+
+.header__list {
+  max-width: 300px;
+  gap: var(--grid-ish-header-gap);
+}
+
+/* для grid-ish*/
+.header__list>* {
+  flex: 1 1 calc((100% - var(--grid-ish-header-gap) * (var(--header-elems-in-row-amount) - 1)) / var(--header-elems-in-row-amount));
+}
+/* для grid-ish*/
+
+.header__item--wide {
+  width: 100%;
+}
+/*header*/
+
+/* game-zone */
+.game-zone__card-list{
+  width: 100%;
+  justify-content: center;
+
+  gap: var(--grid-ish-game-zone-gap);
+  padding: var(--grid-ish-game-zone-gap);
+
+  background-color: var(--bg-color-standard);
+  border-radius: var(--border-radius-standard);
+}
+
+.card{
+  --card-size: calc((100% - (var(--game-zone-elems-in-row) - 1) * var(--grid-ish-game-zone-gap)) / var(--game-zone-elems-in-row));
+
+  cursor: pointer;
+
+  flex: 0 1 var(--card-size);
+
+  aspect-ratio: 1;
+  border-radius: var(--border-radius-standard);
+  background-color: white;
+
+  background-image: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: transform ease-out 0.2s;
+}
+
+.card:hover{
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px black;
+}
+/* game-zone */
+
+/* js-dynamic */
+.dynamic-flex {
+  display: flex;
+}
+
+[data-cardindex = '1'][data-open = 'true']{
+  background-image: var(--card-bgim-1);
+}
+
+[data-cardindex = '2'][data-open = 'true']{
+  background-image: var(--card-bgim-2);
+}
+
+[data-cardindex = '3'][data-open = 'true']{
+  background-image: var(--card-bgim-3);
+}
+
+[data-cardindex = '4'][data-open = 'true']{
+  background-image: var(--card-bgim-4);
+}
+
+[data-cardindex = '5'][data-open = 'true']{
+  background-image: var(--card-bgim-5);
+}
+
+[data-cardindex = '6'][data-open = 'true']{
+  background-image: var(--card-bgim-6);
+}
+
+[data-cardindex = '7'][data-open = 'true']{
+  background-image: var(--card-bgim-7);
+}
+
+[data-cardindex = '8'][data-open = 'true']{
+  background-image: var(--card-bgim-8);
+}
+
+[data-cardindex = '9'][data-open = 'true']{
+  background-image: var(--card-bgim-9);
+}
+
+[data-cardindex = '10'][data-open = 'true']{
+  background-image: var(--card-bgim-10);
+}
+/* js-dynamic */
