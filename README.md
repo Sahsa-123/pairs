@@ -39,6 +39,5 @@ npm run "preview serve"
 ## 📸 Предпросмотр игры
 Интерфейс
 <div align="center"> 
-<img src="https://github.com/user-attachments/assets/5ddf4d81-1645-4087-9895-b4ab652ac121
-">
+<img src="https://github.com/user-attachments/assets/45ec27ad-5f06-4e1c-8b2a-5b7bf1776d0a">
 </div>
